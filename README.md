@@ -5,4 +5,4 @@ It does it by simply querying the data from https://wtfismyip.com/
 
 ## Install
 
-`pip3 install wtfismyip`
+`pipx install wtfismyip`
