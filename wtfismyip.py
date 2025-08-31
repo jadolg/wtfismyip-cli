@@ -5,11 +5,12 @@ import sys
 import requests as requests
 from rich.console import Console
 
-if __name__ == '__main__':
+
+def main():
     console = Console()
     console.print("What the fuck is my IP", style="bold white on blue", justify="center")
 
-    with console.status("[bold blue]Getting...") as status:
+    with console.status("[bold blue]Getting..."):
         default_request = requests.get("https://wtfismyip.com/json")
         if default_request.status_code != 200:
             console.print(f"bad status {default_request.status_code}", style="bold red")
@@ -32,6 +33,10 @@ if __name__ == '__main__':
     console.print(default_request.json().get("YourFuckingISP"), style="yellow")
 
     if default_request.json().get("YourFuckingTorExit"):
-        console.print("You are using Tor", style="red",)
+        console.print("You are using Tor", style="red", )
     console.print("--------", style="bold white on blue", justify="center")
     console.print("powered by https://wtfismyip.com/", style="bold white", justify="right")
+
+
+if __name__ == '__main__':
+    main()
